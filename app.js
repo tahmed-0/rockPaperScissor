@@ -1,51 +1,62 @@
 
 //  
 
+let yourScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     let choices = ["Rock", "Paper", "Scissors"];
     let random = parseInt(Math.random() * choices.length);
     return (choices[random]);
 }
 
+
 function playRound(playerSelection, computerSelection) {
 
     let result = document.getElementById('results');
+    let score = document.getElementById('score');
 
     const buttons = document.querySelectorAll('button');
 
 
-    computerSelection = getComputerChoice();
+    
 
      buttons.forEach((button) => {
 
         button.addEventListener('click', () => {
 
-            playerSelection = button.id;
+            computerSelection = getComputerChoice();
 
-            console.log(button.id);
-            console.log("computer chose " + computerSelection);
+
+            playerSelection = button.id;
 
             if(playerSelection === computerSelection) {
                 result.innerHTML = "Its tie"
                 console.log("Its Tie")
-            } else if (playerSelection === "rock" && computerSelection === "paper") {
-                result.innerHTML = "Computer Wins"
+            } else if (playerSelection === "Rock" && computerSelection === "Paper") {
+                result.innerHTML = "Computer Scored"
+                computerScore += 1;
         
                 console.log("Computer Wins")
-            } else if (playerSelection === "paper" && computerSelection === "scissors") {
-                result.innerHTML = "Computer Wins"
+            } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+                result.innerHTML = "Computer Scored"
+                computerScore += 1;
         
                 console.log("Computer Wins")
-            } else if (playerSelection === "scissors" && computerSelection === "rock") {
-                result.innerHTML = "Computer Wins"
-                console.log("Computer Wins")
+            } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+                result.innerHTML = "Computer Scored"
+                console.log("Computer Scored")
+                computerScore += 1;
             } else {
               // document.getElementById('results').innerHTML = "you win"
         
-               result.innerHTML = "you win"
+               result.innerHTML = "You Scored"
+               yourScore += 1;
         
                 console.log("You win")
             }
+
+            score.innerHTML = "Your score: " +yourScore + " Computer Score " + computerScore;
         }
 
 
@@ -71,13 +82,18 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-playRound();
+
 
 function game() {
     for(let i = 0; i < 5; i++) {
-        playRound();
+    
+      
     }
+
+  
 }
+  playRound();
+//game();
 
 // newGame.addEventListener('click', () => {
 //     game();
