@@ -1,6 +1,7 @@
 
 //  
 
+
 let yourScore = 0;
 let computerScore = 0;
 
@@ -10,16 +11,14 @@ function getComputerChoice() {
     return (choices[random]);
 }
 
+let result = document.getElementById('results');
+let score = document.getElementById('score');
+
+const buttons = document.querySelectorAll('.btn');
+
+
 
 function playRound(playerSelection, computerSelection) {
-
-    let result = document.getElementById('results');
-    let score = document.getElementById('score');
-
-    const buttons = document.querySelectorAll('button');
-
-
-    
 
      buttons.forEach((button) => {
 
@@ -56,6 +55,13 @@ function playRound(playerSelection, computerSelection) {
                 console.log("You win")
             }
 
+            if(yourScore === 6 || computerScore === 6) {
+
+               window.alert("Game Over")
+               generate();
+              
+            }
+
             score.innerHTML = "Your score: " +yourScore + " Computer Score " + computerScore;
         }
 
@@ -83,20 +89,60 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
+// playRound();
+
+// function gamePlay() {
+
+// }
+
 
 function game() {
-    for(let i = 0; i < 5; i++) {
+
+    playRound();
+
+      if(yourScore === 5) {
+        console.log("You won")
+       
+    } else if(computerScore === 5) {
+        console.log("computer won")
+    }
     
-      
+ 
+    
     }
 
   
+game();
+
+
+
+
+
+function generate() {
+
+    yourScore = 0;
+    computerScore = 0;
+    score.innerHTML = "";
+    result.innerHTML = "Play now";
+
+
+//    const generateNewGame = document.querySelector(".newGameBtn");
+
+//     generateNewGame.addEventListener('click', () => {
+//     console.log("I been clicked")
+//     yourScore = 0;
+//     computerScore = 0;
+//     score.innerHTML = "";
+//     result.innerHTML = "Play now";
+
+
+
+    
+//    });
+
 }
-  playRound();
-//game();
-
-// newGame.addEventListener('click', () => {
-//     game();
-// })
 
 
+
+
+//Add a pop up when the score is 5, the pop up button has the option to plat game again

@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Lilita+One&display=swap');
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(196, 152, 108);
+    background-color: rgb(92, 104, 111);
+    font-family: 'Courier Prime', monospace;
+    font-family: 'Lilita One', cursive;
+    color: white;
+    font-size: 28px;
 }
 
 .content {
@@ -14,11 +19,26 @@ body {
 
 }
 
-button {
-    width: 100px;
-}
 
 .row {
     display: flex;
-    flex-direction: column;
+    margin: 10px;
+}
+
+.block {
+    display: flex;
+    padding: 10px;
+   
+}
+
+
+
+img {
+    width: 150px;
+    height: 150px;
+}
+
+button {
+    background-color: rgba(229, 237, 244, 0);
+    border: none;
 }
